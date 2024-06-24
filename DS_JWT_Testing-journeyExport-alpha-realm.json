@@ -1,0 +1,484 @@
+{
+  "meta": {
+    "origin": "https://XXXX/platform/?realm=alpha#/journeys/DS_JWT_Testing",
+    "exportedBy": "XXXX",
+    "exportDate": "2024-06-24T17:31:33.330Z",
+    "exportTool": "platform-admin ui tree export",
+    "exportToolVersion": "1.0",
+    "treesSelectedForExport": [
+      "DS_JWT_Testing"
+    ],
+    "innerTreesIncluded": []
+  },
+  "trees": {
+    "DS_JWT_Testing": {
+      "tree": {
+        "_id": "DS_JWT_Testing",
+        "_rev": "-1983159098",
+        "identityResource": "managed/alpha_user",
+        "uiConfig": {
+          "categories": "[\"Authentication\",\"jwt\"]"
+        },
+        "entryNodeId": "65f48c72-1956-4392-b896-c21bae4b6e3e",
+        "innerTreeOnly": false,
+        "nodes": {
+          "3a1b024b-03b9-4ef2-9d66-a5db96fc433c": {
+            "x": 611,
+            "y": 244.76666259765625,
+            "connections": {
+              "Success": "f1bb66a8-c1fe-47e4-979d-811422dc731e",
+              "Failure": "a4c70ca0-2a58-4be9-8c50-cfbd3a8b0a19"
+            },
+            "nodeType": "ScriptedDecisionNode",
+            "displayName": "Create JWT"
+          },
+          "f1bb66a8-c1fe-47e4-979d-811422dc731e": {
+            "x": 841,
+            "y": 250.76666259765625,
+            "connections": {
+              "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+              "true": "d5798e72-f0d5-4488-ab34-725f61abee8c"
+            },
+            "nodeType": "MessageNode",
+            "displayName": "JWT Create Success Message"
+          },
+          "05247d2e-470f-4a72-90fa-becc4d7da9f4": {
+            "x": 1337,
+            "y": 402.76666259765625,
+            "connections": {},
+            "nodeType": "MessageNode",
+            "displayName": "JWT Validation Failure Message"
+          },
+          "03ef178f-4abc-4a2c-9597-979f9f3a11ad": {
+            "x": 1632,
+            "y": 292.8666687011719,
+            "connections": {},
+            "nodeType": "ScriptedDecisionNode",
+            "displayName": "Debugger - Display State"
+          },
+          "6d29694a-ce3b-45bd-a2bb-478f0985e36f": {
+            "x": 1339,
+            "y": 262.76666259765625,
+            "connections": {
+              "true": "03ef178f-4abc-4a2c-9597-979f9f3a11ad",
+              "false": "e301438c-0bd0-429c-ab0c-66126501069a"
+            },
+            "nodeType": "MessageNode",
+            "displayName": "JWT Validation Success Message"
+          },
+          "a4c70ca0-2a58-4be9-8c50-cfbd3a8b0a19": {
+            "x": 833,
+            "y": 391.76666259765625,
+            "connections": {
+              "true": "e301438c-0bd0-429c-ab0c-66126501069a",
+              "false": "e301438c-0bd0-429c-ab0c-66126501069a"
+            },
+            "nodeType": "MessageNode",
+            "displayName": "JWT Create Failure Message"
+          },
+          "27d3b08d-4d6f-49d6-9b9f-5e9141de3a29": {
+            "x": 360,
+            "y": 238.76666259765625,
+            "connections": {
+              "false": "8047ff63-945d-4972-a1f2-330ec333a3b9",
+              "true": "3a1b024b-03b9-4ef2-9d66-a5db96fc433c"
+            },
+            "nodeType": "IdentifyExistingUserNode",
+            "displayName": "Identify Existing User"
+          },
+          "65f48c72-1956-4392-b896-c21bae4b6e3e": {
+            "x": 156.5333251953125,
+            "y": 255.76666259765625,
+            "connections": {
+              "outcome": "27d3b08d-4d6f-49d6-9b9f-5e9141de3a29"
+            },
+            "nodeType": "AttributeCollectorNode",
+            "displayName": "Attribute Collector"
+          },
+          "d5798e72-f0d5-4488-ab34-725f61abee8c": {
+            "x": 1129,
+            "y": 256.8666687011719,
+            "connections": {
+              "Success": "6d29694a-ce3b-45bd-a2bb-478f0985e36f",
+              "Failure": "05247d2e-470f-4a72-90fa-becc4d7da9f4"
+            },
+            "nodeType": "ScriptedDecisionNode",
+            "displayName": "Validate JWT"
+          },
+          "8047ff63-945d-4972-a1f2-330ec333a3b9": {
+            "x": 417,
+            "y": 443.76666259765625,
+            "connections": {
+              "Retry": "f5c34f7a-3ef4-4158-892e-054594ada1b3",
+              "Reject": "e301438c-0bd0-429c-ab0c-66126501069a"
+            },
+            "nodeType": "RetryLimitDecisionNode",
+            "displayName": "Retry Limit Decision"
+          },
+          "f5c34f7a-3ef4-4158-892e-054594ada1b3": {
+            "x": 642,
+            "y": 449.76666259765625,
+            "connections": {
+              "true": "65f48c72-1956-4392-b896-c21bae4b6e3e",
+              "false": "e301438c-0bd0-429c-ab0c-66126501069a"
+            },
+            "nodeType": "MessageNode",
+            "displayName": "User Not Found"
+          }
+        },
+        "staticNodes": {
+          "startNode": {
+            "x": 50,
+            "y": 250
+          },
+          "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
+            "x": 41,
+            "y": 80
+          },
+          "e301438c-0bd0-429c-ab0c-66126501069a": {
+            "x": 1388,
+            "y": 650
+          }
+        },
+        "description": "An example journey to create and validate JWT tokens",
+        "enabled": true
+      },
+      "nodes": {
+        "3a1b024b-03b9-4ef2-9d66-a5db96fc433c": {
+          "_id": "3a1b024b-03b9-4ef2-9d66-a5db96fc433c",
+          "_rev": "-1156367933",
+          "script": "bf0be98a-b391-4b7e-8660-c926d9c7aa5e",
+          "outcomes": [
+            "Success",
+            "Failure"
+          ],
+          "outputs": [
+            "*"
+          ],
+          "inputs": [
+            "*"
+          ],
+          "_type": {
+            "_id": "ScriptedDecisionNode",
+            "name": "Scripted Decision",
+            "collection": true
+          },
+          "_outcomes": [
+            {
+              "id": "Success",
+              "displayName": "Success"
+            },
+            {
+              "id": "Failure",
+              "displayName": "Failure"
+            }
+          ]
+        },
+        "f1bb66a8-c1fe-47e4-979d-811422dc731e": {
+          "_id": "f1bb66a8-c1fe-47e4-979d-811422dc731e",
+          "_rev": "1089130481",
+          "messageYes": {
+            "en": "Continue"
+          },
+          "message": {
+            "en": "Success - JWT Created!"
+          },
+          "messageNo": {
+            "en": "Exit"
+          },
+          "_type": {
+            "_id": "MessageNode",
+            "name": "Message Node",
+            "collection": true
+          },
+          "_outcomes": [
+            {
+              "id": "true",
+              "displayName": "True"
+            },
+            {
+              "id": "false",
+              "displayName": "False"
+            }
+          ]
+        },
+        "05247d2e-470f-4a72-90fa-becc4d7da9f4": {
+          "_id": "05247d2e-470f-4a72-90fa-becc4d7da9f4",
+          "_rev": "-67975182",
+          "messageYes": {
+            "en": "End"
+          },
+          "message": {
+            "en": "Failure - JWT validation failed!"
+          },
+          "messageNo": {
+            "en": "End"
+          },
+          "_type": {
+            "_id": "MessageNode",
+            "name": "Message Node",
+            "collection": true
+          },
+          "_outcomes": [
+            {
+              "id": "true",
+              "displayName": "True"
+            },
+            {
+              "id": "false",
+              "displayName": "False"
+            }
+          ]
+        },
+        "03ef178f-4abc-4a2c-9597-979f9f3a11ad": {
+          "_id": "03ef178f-4abc-4a2c-9597-979f9f3a11ad",
+          "_rev": "-789587045",
+          "script": "3e3e7d21-cb85-4bb4-bb5a-a3759315ac13",
+          "outcomes": [
+            "next"
+          ],
+          "outputs": [
+            "*"
+          ],
+          "inputs": [
+            "*"
+          ],
+          "_type": {
+            "_id": "ScriptedDecisionNode",
+            "name": "Scripted Decision",
+            "collection": true
+          },
+          "_outcomes": [
+            {
+              "id": "next",
+              "displayName": "next"
+            }
+          ]
+        },
+        "6d29694a-ce3b-45bd-a2bb-478f0985e36f": {
+          "_id": "6d29694a-ce3b-45bd-a2bb-478f0985e36f",
+          "_rev": "-1922198956",
+          "messageYes": {
+            "en": "Yes"
+          },
+          "message": {
+            "en": "Success - JWT successfully validated! Continue to view all state variables?"
+          },
+          "messageNo": {
+            "en": "End"
+          },
+          "_type": {
+            "_id": "MessageNode",
+            "name": "Message Node",
+            "collection": true
+          },
+          "_outcomes": [
+            {
+              "id": "true",
+              "displayName": "True"
+            },
+            {
+              "id": "false",
+              "displayName": "False"
+            }
+          ]
+        },
+        "a4c70ca0-2a58-4be9-8c50-cfbd3a8b0a19": {
+          "_id": "a4c70ca0-2a58-4be9-8c50-cfbd3a8b0a19",
+          "_rev": "1940233419",
+          "messageYes": {},
+          "message": {
+            "en": "Failure - JWT creation failed!"
+          },
+          "messageNo": {},
+          "_type": {
+            "_id": "MessageNode",
+            "name": "Message Node",
+            "collection": true
+          },
+          "_outcomes": [
+            {
+              "id": "true",
+              "displayName": "True"
+            },
+            {
+              "id": "false",
+              "displayName": "False"
+            }
+          ]
+        },
+        "27d3b08d-4d6f-49d6-9b9f-5e9141de3a29": {
+          "_id": "27d3b08d-4d6f-49d6-9b9f-5e9141de3a29",
+          "_rev": "-971824991",
+          "identityAttribute": "mail",
+          "identifier": "userName",
+          "_type": {
+            "_id": "IdentifyExistingUserNode",
+            "name": "Identify Existing User",
+            "collection": true
+          },
+          "_outcomes": [
+            {
+              "id": "true",
+              "displayName": "True"
+            },
+            {
+              "id": "false",
+              "displayName": "False"
+            }
+          ]
+        },
+        "65f48c72-1956-4392-b896-c21bae4b6e3e": {
+          "_id": "65f48c72-1956-4392-b896-c21bae4b6e3e",
+          "_rev": "1982556725",
+          "attributesToCollect": [
+            "mail"
+          ],
+          "identityAttribute": "userName",
+          "validateInputs": false,
+          "required": false,
+          "_type": {
+            "_id": "AttributeCollectorNode",
+            "name": "Attribute Collector",
+            "collection": true
+          },
+          "_outcomes": [
+            {
+              "id": "outcome",
+              "displayName": "Outcome"
+            }
+          ]
+        },
+        "d5798e72-f0d5-4488-ab34-725f61abee8c": {
+          "_id": "d5798e72-f0d5-4488-ab34-725f61abee8c",
+          "_rev": "1193384577",
+          "script": "76fe3e9d-165e-4d19-84c7-2a8d373f5289",
+          "outcomes": [
+            "Success",
+            "Failure"
+          ],
+          "outputs": [
+            "*"
+          ],
+          "inputs": [
+            "*"
+          ],
+          "_type": {
+            "_id": "ScriptedDecisionNode",
+            "name": "Scripted Decision",
+            "collection": true
+          },
+          "_outcomes": [
+            {
+              "id": "Success",
+              "displayName": "Success"
+            },
+            {
+              "id": "Failure",
+              "displayName": "Failure"
+            }
+          ]
+        },
+        "8047ff63-945d-4972-a1f2-330ec333a3b9": {
+          "_id": "8047ff63-945d-4972-a1f2-330ec333a3b9",
+          "_rev": "1134196540",
+          "incrementUserAttributeOnFailure": true,
+          "retryLimit": 2,
+          "_type": {
+            "_id": "RetryLimitDecisionNode",
+            "name": "Retry Limit Decision",
+            "collection": true
+          },
+          "_outcomes": [
+            {
+              "id": "Retry",
+              "displayName": "Retry"
+            },
+            {
+              "id": "Reject",
+              "displayName": "Reject"
+            }
+          ]
+        },
+        "f5c34f7a-3ef4-4158-892e-054594ada1b3": {
+          "_id": "f5c34f7a-3ef4-4158-892e-054594ada1b3",
+          "_rev": "515883777",
+          "messageYes": {
+            "en": "Yes"
+          },
+          "message": {
+            "en": "User not found. Try again?"
+          },
+          "messageNo": {
+            "en": "No"
+          },
+          "_type": {
+            "_id": "MessageNode",
+            "name": "Message Node",
+            "collection": true
+          },
+          "_outcomes": [
+            {
+              "id": "true",
+              "displayName": "True"
+            },
+            {
+              "id": "false",
+              "displayName": "False"
+            }
+          ]
+        }
+      },
+      "innerNodes": {},
+      "scripts": {
+        "bf0be98a-b391-4b7e-8660-c926d9c7aa5e": {
+          "_id": "bf0be98a-b391-4b7e-8660-c926d9c7aa5e",
+          "name": "ds-create-jwt",
+          "description": "A Script to create a HMAC signed JWT token",
+          "script": "\"// Example script to create a JWT token using a HMAC signing key\\n\\n/**\\n * Script configuration\\n*/\\n\\n// Initialise the ds-node-logger-lib library script\\nXLogger = require(\\\"ds-node-logger-lib\\\").XLogger;\\nlogger = new XLogger(this);\\n\\nvar config = {\\n  /**\\n   * @property {string} issuer - Sets the JWT iss claim \\n   * @property {string} audience - Sets the JWT aud claim\\n   * @property {integer} validityMinutes - Sets the JWT token validity\\n   * @property {string} signingKey - Defines the JWT signing key\\n   * \\n   */\\n\\n  issuer: \\\"myissuer\\\",\\n  audience: \\\"myaudience\\\",\\n  validityMinutes: 5,\\n  signingKey: \\\"dm9vz3sSIJDwZhQM4/YPS4iGeOqYm1qm8pNKKkhAYQc=\\\"\\n};\\n\\n/**\\n * Node outcomes\\n*/\\nvar nodeOutcome = {\\n  SUCCESS: \\\"Success\\\",\\n  ERROR: \\\"Failure\\\"\\n};\\n\\n/**\\n * Main function\\n */\\n\\n(function () {\\n  logger.error(\\\"Node execution started\\\");\\n\\n  var secret = config.signingKey;\\n  logger.debug('secret = ' + secret);\\n\\n  if (typeof secret !== 'undefined' && secret !== null) {\\n    var jwtClaims = {\\n      jwtType: \\\"SIGNED\\\",\\n      jwsAlgorithm: \\\"HS256\\\",\\n      issuer: config.issuer,\\n      audience: config.audience,\\n      subject: nodeState.get(\\\"_id\\\"),\\n      validityMinutes: config.validityMinutes,\\n      signingKey: secret,\\n      claims: {\\n        uid: nodeState.get(\\\"_id\\\"),\\n        test_claim: \\\"test_value\\\"\\n      }\\n    }\\n\\n    logger.debug(\\\"claims = \\\" + JSON.stringify(jwtClaims));\\n\\n    //Generated JWT token\\n    var jwt = jwtAssertion.generateJwt(jwtClaims);\\n\\n    logger.debug(\\\"Generated JWT = \\\" + jwt);\\n\\n    nodeState.putShared(\\\"jwt\\\", jwt);\\n    logger.error(\\\"Node execution completed\\\");\\n    action.goTo(nodeOutcome.SUCCESS);\\n\\n  } else {\\n    logger.error(\\\"Signing key not configured: \\\" + config.signingKeyEsv);\\n    action.goTo(nodeOutcome.ERROR);\\n  }\\n})();\"",
+          "default": false,
+          "language": "JAVASCRIPT",
+          "context": "AUTHENTICATION_TREE_DECISION_NODE",
+          "createdBy": "null",
+          "creationDate": 0,
+          "lastModifiedBy": "null",
+          "lastModifiedDate": 0,
+          "evaluatorVersion": "2.0"
+        },
+        "3e3e7d21-cb85-4bb4-bb5a-a3759315ac13": {
+          "_id": "3e3e7d21-cb85-4bb4-bb5a-a3759315ac13",
+          "name": "ds-debug-output",
+          "description": "A script to display all state variables",
+          "script": "\"// Script to prints sharedState, transientState object attributes, request cookies, request parameters and request headers\\n\\n/**\\n * IMPORTANT\\n * Be mindful that as transientState attributes are retrieved and displayed onscreen they will be deleted after this node\\n */\\n\\n// Initialise the ds-node-logger-lib library script\\nXLogger = require(\\\"ds-node-logger-lib\\\").XLogger;\\nlogger = new XLogger(this);\\n\\n/**\\n * Node outcomes\\n */\\nvar nodeOutcomes = {\\n    NEXT: \\\"next\\\"\\n};\\n\\n/**\\n * Main function\\n */\\n\\n(function () {\\n    logger.error(\\\"Node execution started\\\");\\n    if (callbacks.isEmpty()) {\\n\\n        //Get nodeState\\n        nodeState.keys().toArray().forEach(\\n            function (key) {\\n                var value = nodeState.get(key);\\n                callbacksBuilder.stringAttributeInputCallback(key, \\\"nodeState.\\\".concat(key), value, false);\\n            }\\n        );\\n\\n        //Get objectAttributes\\n        var oa = nodeState.getObject(\\\"objectAttributes\\\");\\n        if (!!oa) {\\n            Object.keys(oa).forEach(\\n                function (key) {\\n                    callbacksBuilder.stringAttributeInputCallback(key, \\\"objectAttributes.\\\".concat(key), oa.get(key), false);\\n                }\\n            );\\n        }\\n\\n        // Get Cookies\\n        var cookieHeader = requestHeaders.get(\\\"cookie\\\");\\n        if (!!cookieHeader) {\\n            var cookies = cookieHeader.get(0).split(\\\";\\\");\\n            cookies.forEach(\\n                function (key) {\\n                    var cookieSpec = key.split(\\\"=\\\");\\n                    callbacksBuilder.stringAttributeInputCallback(cookieSpec[0].trim(), \\\"Cookies.\\\".concat(cookieSpec[0].trim()), cookieSpec[1].trim(), false);\\n                }\\n            );\\n        }\\n\\n        //Get requestParameters \\n        var requestParamKeys = Object.keys(requestParameters);\\n        requestParamKeys.forEach(\\n            function (key) {\\n                var value = requestParameters.get(key).get(0);\\n                callbacksBuilder.stringAttributeInputCallback(key, \\\"requestParameters.\\\".concat(key), value, false);\\n            }\\n        );\\n\\n        //Get requestHeaders\\n        var requestHeaderKeys = Object.keys(requestHeaders);\\n        requestHeaderKeys.forEach(\\n            function (key) {\\n                var value = requestHeaders.get(key).get(0);\\n                callbacksBuilder.stringAttributeInputCallback(key, \\\"requestHeaders.\\\".concat(key), value, false);\\n            }\\n        );\\n    } else {\\n        logger.error(\\\"Node execution completed\\\");\\n        action.goTo(nodeOutcomes.NEXT);\\n    }\\n})();\"",
+          "default": false,
+          "language": "JAVASCRIPT",
+          "context": "AUTHENTICATION_TREE_DECISION_NODE",
+          "createdBy": "null",
+          "creationDate": 0,
+          "lastModifiedBy": "null",
+          "lastModifiedDate": 0,
+          "evaluatorVersion": "2.0"
+        },
+        "76fe3e9d-165e-4d19-84c7-2a8d373f5289": {
+          "_id": "76fe3e9d-165e-4d19-84c7-2a8d373f5289",
+          "name": "ds-validate-jwt",
+          "description": "Script to validate a HMAC signed JWT token",
+          "script": "\"// Example script to validate a JWT token signed using a HMAC signing key\\n\\n/**\\n * Script configuration\\n*/\\n\\n// Initialise the ds-node-logger-lib library script\\nXLogger = require(\\\"ds-node-logger-lib\\\").XLogger;\\nlogger = new XLogger(this);\\n\\nvar config = {\\n  /**\\n * @property {string} issuer - Sets the JWT iss claim \\n * @property {string} audience - Sets the JWT aud claim\\n * @property {integer} validityMinutes - Sets the JWT token validity\\n * @property {string} signingKey - Defines the JWT signing key\\n * \\n */\\n  issuer: \\\"myissuer\\\",\\n  audience: \\\"myaudience\\\",\\n  validityMinutes: 5,\\n  signingKey: \\\"dm9vz3sSIJDwZhQM4/YPS4iGeOqYm1qm8pNKKkhAYQc=\\\"\\n};\\n\\n/**\\n * Node outcomes\\n*/\\nvar nodeOutcome = {\\n  SUCCESS: \\\"Success\\\",\\n  ERROR: \\\"Failure\\\"\\n};\\n\\n/**\\n * Main function\\n */\\n\\n(function () {\\nlogger.error(\\\"Node execution started\\\");\\n\\nvar secret = config.signingKey;\\nvar assertionJwt = nodeState.get(\\\"jwt\\\");\\n\\nlogger.debug(\\\"Secret = \\\" + secret + \\\", assertionJwt = \\\" + assertionJwt);\\n\\nvar jwtClaims;\\nvar jwtData = {\\n  jwtType: \\\"SIGNED\\\",\\n  jwt: assertionJwt,\\n  issuer: config.issuer,\\n  audience: config.audience,\\n  signingKey: secret\\n};\\n\\ntry {\\n  if (assertionJwt === null) {\\n    logger.error(\\\"JWT assertion not found\\\");\\n    action.goTo(nodeOutcome.ERROR);\\n  } else if (typeof secret === \\\"undefined\\\" || secret === null) {\\n    logger.error(\\\"Signing key not configured: \\\" + config.signingKey);\\n    action.goTo(nodeOutcome.ERROR);\\n  } else {\\n    //Validate JWT\\n    jwtClaims = jwtValidator.validateJwtClaims(jwtData);\\n  }\\n} catch (e) {\\n  logger.error(\\\"Invalid JWT signing key, exception = \\\" + e);\\n}\\n\\nif (jwtClaims === null) {\\n  logger.error(\\\"Invalid JWT Claims\\\");\\n  action.goTo(nodeOutcome.ERROR);\\n} else {\\n  //Extract UID from JWT and insert into sharedState\\n  var uid = jwtClaims.get(\\\"uid\\\");\\n  logger.debug(\\\"uid = \\\" + uid);\\n  nodeState.putShared(\\\"claimAttribute\\\", uid);\\n  logger.error(\\\"Node execution completed\\\");\\n  action.goTo(nodeOutcome.SUCCESS);\\n}\\n})();\"",
+          "default": false,
+          "language": "JAVASCRIPT",
+          "context": "AUTHENTICATION_TREE_DECISION_NODE",
+          "createdBy": "null",
+          "creationDate": 0,
+          "lastModifiedBy": "null",
+          "lastModifiedDate": 0,
+          "evaluatorVersion": "2.0"
+        }
+      },
+      "emailTemplates": {},
+      "socialIdentityProviders": {},
+      "themes": [],
+      "saml2Entities": {},
+      "circlesOfTrust": {}
+    }
+  }
+}
